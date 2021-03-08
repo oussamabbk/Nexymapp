@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from User.models import User,Doctor
-from User.serializers import UserSerializer,DoctorSerializer
+from User.models import User,Doctor,Patient
+from User.serializers import UserSerializer,DoctorSerializer,PatientSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
@@ -16,6 +16,12 @@ class DoctorViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Doctor.objects.all()
+class PatientViewSet(viewsets.ModelViewSet):
+
+    serializer_class = PatientSerializer
+
+    def get_queryset(self):
+        return Patient.objects.all()
 
 
 
