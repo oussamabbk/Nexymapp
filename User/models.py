@@ -15,3 +15,26 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Doctor(User):
+    Desination= models.CharField(max_length=255)
+    specialite=models.CharField(max_length=255)
+    def __str__(self):
+        return self.name
+
+
+
+class Patient(User):
+    identifiant = models.IntegerField()
+    identifiantClinique=models.CharField(max_length=255)
+    Groupesanguin=models.CharField(max_length=255)
+    maladiechronique=models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+class clinique(User):
+
+
+    def __str__(self):
+        return self.name
