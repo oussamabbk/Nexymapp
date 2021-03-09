@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import UserViewSet,DoctorViewSet,PatientViewSet
+from .views import UserViewSet,DoctorViewSet,PatientViewSet,authentification
 from rest_framework import routers
 
 router = routers.SimpleRouter()
@@ -15,6 +15,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('', include(Doctor_router.urls)),
     path('', include(Doctor_patient.urls)),
+    path('authentification', authentification),
 
 
 ]

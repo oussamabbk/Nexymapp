@@ -1,6 +1,8 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, request
 from User.models import User,Doctor,Patient
 from User.serializers import UserSerializer,DoctorSerializer,PatientSerializer
+from  django.http import HttpResponse
+import json
 
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
@@ -23,5 +25,8 @@ class PatientViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return Patient.objects.all()
 
+def authentification(request):
+    response=json.dumps([{}])
+    return HttpResponse(response,content_type='text/json')
 
 
