@@ -21,7 +21,7 @@ class Doctor(User):
     Desination= models.CharField(max_length=255)
     specialite=models.CharField(max_length=255)
     def __str__(self):
-        return self.name
+        return self.Email
 
 
 
@@ -32,9 +32,14 @@ class Patient(User):
     maladiechronique=models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.Email
 class clinique(User):
 
 
+    def __str__(self):
+        return self.name
+class patient_Clinique(models.Model):
+    Doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, editable=True, default=None)
+    Patient = models.ForeignKey(Patient, on_delete=models.CASCADE, editable=True, default=None)
     def __str__(self):
         return self.name

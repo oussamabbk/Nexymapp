@@ -25,8 +25,7 @@ SECRET_KEY = '2t(3ev2$bd*c#t4toa2ov9dy99)qvmf06+$tm=$!c5yxbt!1yw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -53,7 +52,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'stageNexym.urls'
 
@@ -124,7 +125,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+'http://localhost:3000',
+'http://127.0.0.1:3000',
+]
 
 
 # Static files (CSS, JavaScript, Images)
