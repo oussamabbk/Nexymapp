@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,9 +85,9 @@ DATABASES = {
     'default': {
 
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'nexymapp',
+            'NAME': 'postgres',
             'USER': 'postgres',
-            'PASSWORD': 'root',
+            'PASSWORD': 'admin',
             'HOST': 'localhost',
             'PORT': '5432',
     }
@@ -136,3 +136,5 @@ CORS_ORIGIN_WHITELIST = [
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'modia')
+MEDIA_URL = '/media/'
