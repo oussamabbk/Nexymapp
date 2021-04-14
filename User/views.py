@@ -86,3 +86,19 @@ def MedecinPatient(request,iddoctor):
 
         serialize=PatientSerializer(patients,many=True)
         return Response(serialize.data, status=status.HTTP_200_OK)
+@api_view(['DELETE'])
+def DeletepatienfromMedecin(request,idDoctor,idPatient):
+    patient = Patient.objects.get(id=idPatient)
+    Doc = Doctor.objects.get(id=idDoctor)
+    Doc.Patients.remove(patient)
+    return Response("Deleted")
+@api_view(['GET'])
+def countPatient(request):
+    numb=Patient.objects.count()
+    print(numb)
+    return Response(numb)
+@api_view(['GET'])
+def countDoctor(request):
+    numb=Doctor.objects.count()
+    print(numb)
+    return Response(numb)

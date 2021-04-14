@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import UserViewSet,DoctorViewSet,PatientViewSet,authentification,patient_CliniqueViewSet,getPatientOfMedecin,PostPatient,MedecinPatient,PatientMedecin
+from .views import UserViewSet,DoctorViewSet,PatientViewSet,authentification,patient_CliniqueViewSet,getPatientOfMedecin,PostPatient,MedecinPatient,PatientMedecin,DeletepatienfromMedecin,countPatient,countDoctor
 from rest_framework import routers
 
 router = routers.SimpleRouter()
@@ -19,8 +19,11 @@ urlpatterns = [
     path('',include(patient_Clinique.urls)),
     path('fu/<int:id>',getPatientOfMedecin),
     path('authentification', authentification),
-    path('allPatient/<int:iddoctor>/<int:idPatient>', PostPatient),
+    path('PostPatient/<int:iddoctor>/<int:idPatient>', PostPatient),
     path('MedecinPatient/<int:iddoctor>',MedecinPatient),
-    path('PatientMedecin/<int:idPatient>', PatientMedecin)
+    path('PatientMedecin/<int:idPatient>', PatientMedecin),
+    path('DeletepatienfromMedecin/<int:idDoctor>/<int:idPatient>', DeletepatienfromMedecin),
+    path('countpat',countPatient),
+    path('countDoctor', countDoctor)
 
 ]
